@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset
+    xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
+       http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd"
+>
+
+<url>
+ <loc>http://www.fuxiaoji.xyz/2021/05/04/hi</loc>
+ <priority>1.0</priority>
+ <lastmod>2021-07-03</lastmod>
+ <changefreq>weekly</changefreq>
+</url>
+
+<url>
+ <loc>http://www.fuxiaoji.xyz</loc>
+ <priority>1.0</priority>
+ <lastmod>2021-07-03</lastmod>
+ <changefreq>weekly</changefreq>
+</url>
+
+<url>
+ <loc>http://www.fuxiaoji.xyz/2021/05/22/%E5%A4%A9%E5%93%AA</loc>
+ <priority>1.0</priority>
+ <lastmod>2021-07-03</lastmod>
+ <changefreq>weekly</changefreq>
+</url>
+
+<url>
+ <loc>http://www.fuxiaoji.xyz/2021/07/03/Good</loc>
+ <priority>1.0</priority>
+ <lastmod>2021-07-03</lastmod>
+ <changefreq>weekly</changefreq>
+</url>
+
+<url>
+ <loc>http://www.fuxiaoji.xyz/</loc>
+ <priority>1.0</priority>
+ <lastmod>2021-07-03</lastmod>
+ <changefreq>weekly</changefreq>
+</url>
+
+<url>
+ <loc>http://www.fuxiaoji.xyz/2-tags</loc>
+ <priority>1.0</priority>
+ <lastmod>2021-07-03</lastmod>
+ <changefreq>weekly</changefreq>
+</url>
+
+<url>
+ <loc>http://www.0558.la/</loc>
+ <priority>1.0</priority>
+ <lastmod>2021-07-03</lastmod>
+ <changefreq>weekly</changefreq>
+</url>
+
+<url>
+ <loc>http://www.fuxiaoji.xyz/2021/05/15/%E5%91%BC%E5%85%B0%E6%B2%B3%E4%BC%A0</loc>
+ <priority>1.0</priority>
+ <lastmod>2021-07-03</lastmod>
+ <changefreq>weekly</changefreq>
+</url>
+
+<url>
+ <loc>http://www.fuxiaoji.xyz/3-about</loc>
+ <priority>1.0</priority>
+ <lastmod>2021-07-03</lastmod>
+ <changefreq>weekly</changefreq>
+</url>
+
+<url>
+ <loc>https://github.com/yanxiaoji/yanxiaoji.github.io</loc>
+ <priority>1.0</priority>
+ <lastmod>2021-07-03</lastmod>
+ <changefreq>weekly</changefreq>
+</url>
+
+<url>
+ <loc>http://www.fuxiaoji.xyz/2021/05/15/md%E8%AF%AD%E6%B3%95%E9%92%88%E4%B8%8D%E6%88%B3</loc>
+ <priority>1.0</priority>
+ <lastmod>2021-07-03</lastmod>
+ <changefreq>weekly</changefreq>
+</url>
+
+</urlset>
