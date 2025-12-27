@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>《指鹿为马》台词本</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { 
+            font-family: "Microsoft YaHei", sans-serif; 
+            max-width: 1000px; 
+            margin: 0 auto; 
+            padding: 20px; 
+            background: #f0f2f5; 
+        }
+        header { 
+            text-align: center; 
+            margin-bottom: 30px; 
+            padding: 20px; 
+            background: white; 
+            border-radius: 10px; 
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+        h1 { 
+            color: #1890ff; 
+            margin-bottom: 10px; 
+        }
+        .subtitle { 
+            color: #666; 
+            margin-bottom: 15px; 
+        }
+        .controls { 
+            display: flex; 
+            flex-wrap: wrap; 
+            gap: 10px; 
+            justify-content: center; 
+            margin-bottom: 20px; 
+        }
+        button { 
+            padding: 12px 20px; 
+            border: 2px solid #1890ff; 
+            border-radius: 8px; 
+            background: white; 
+            color: #1890ff; 
+            font-weight: bold; 
+            cursor: pointer; 
+            transition: all 0.3s; 
+        }
+        button:hover, button.active { 
+            background: #1890ff; 
+            color: white; 
+        }
+        .script { 
+            background: white; 
+            border-radius: 10px; 
+            padding: 25px; 
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1); 
+            min-height: 500px; 
+        }
+        .scene { 
+            margin-bottom: 30px; 
+        }
+        .scene-title { 
+            color: #d4380d; 
+            border-left: 4px solid #d4380d; 
+            padding: 8px 15px; 
+            margin: 20px 0 15px 0; 
+            font-size: 1.2em; 
+        }
+        .line { 
+            margin: 15px 0; 
+            padding: 10px; 
+            border-radius: 5px; 
+        }
+        .character { 
+            font-weight: bold; 
+            color: #1d39c4; 
+            margin-bottom: 5px; 
+        }
+        .narrator { 
+            font-style: italic; 
+            color: #666; 
+            background: #fafafa; 
+            padding: 10px 15px; 
+            border-left: 3px solid #8c8c8c; 
+        }
+        .highlight { 
+            background: #e6f7ff; 
+            border-left: 4px solid #1890ff; 
+        }
+        .footer { 
+            text-align: center; 
+            margin-top: 30px; 
+            color: #666; 
+            font-size: 14px; 
+        }
+        @media (max-width: 768px) {
+            .controls { flex-direction: column; align-items: center; }
+            button { width: 90%; }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>《指鹿为马》校园剧台词本</h1>
+        <p class="subtitle">点击角色按钮，只看自己的台词</p>
+        <div class="controls">
+            <button onclick="showLines('all')" class="active">完整剧本</button>
+            <button onclick="showLines('旁白')">旁白</button>
+            <button onclick="showLines('赵高')">赵高</button>
+            <button onclick="showLines('胡亥')">胡亥</button>
+            <button onclick="showLines('支持大臣')">支持大臣</button>
+            <button onclick="showLines('反对大臣')">反对大臣</button>
+        </div>
+    </header>
+    
+    <div class="script" id="script">
+        <!-- 剧本会在这里显示 -->
+    </div>
+    
+    <div class="footer">
+        <p>点击角色按钮可切换显示该角色的台词 | 支持打印</p>
+    </div>
+
+    <script>
+        // 完整的剧本数据
+        const script = [
+            {
+                scene: "第一场：朝堂争议",
+                lines: [
+                    {role: "旁白", text: "(咸阳宫前殿，秦二世胡亥坐于龙椅，神色倦怠。赵高立于阶侧。大臣们分列两旁)"},
+                    {role: "反对大臣", text: "陛下！紧急军情！叛军已到戏下，距咸阳不过百里！"},
+                    {role: "胡亥", text: "(惊坐起)什么？上月不是说章邯已剿灭叛军了吗？赵高，这是怎么回事？"},
+                    {role: "赵高", text: "(缓步上前)陛下不必担忧。不过是些流寇，已成强弩之末。"},
+                    {role: "支持大臣", text: "赵大人所言极是。陛下洪福齐天，大秦江山固若金汤。"},
+                    {role: "反对大臣", text: "荒唐！赵高，你封锁军情，蒙蔽圣听，这是要葬送大秦江山！"},
+                    {role: "赵高", text: "(冷笑)李斯当初也这样说。"},
+                    {role: "旁白", text: "(朝堂上一片死寂。胡亥脸色发白)"},
+                    {role: "胡亥", text: "罢了……退朝吧……"},
+                    {role: "赵高", text: "(提高声音)陛下且慢。臣近日得一祥瑞，愿献于陛下。"}
+                ]
+            },
+            {
+                scene: "第二场：指鹿为马",
+                lines: [
+                    {role: "旁白", text: "(赵高击掌，侍从牵一头上等梅花鹿上殿)"},
+                    {role: "胡亥", text: "咦？这是鹿吗？"},
+                    {role: "赵高", text: "(微笑)陛下，这是西域进贡的千里马。"},
+                    {role: "支持大臣", text: "果然是神骏！陛下威加四海，故有祥瑞来朝！"},
+                    {role: "反对大臣", text: "(大怒)赵高！你竟敢指鹿为马，欺君罔上！"},
+                    {role: "赵高", text: "(环视众臣)哦？李大人说是鹿，老夫说是马。诸位大人，你们说这是什么？"},
+                    {role: "支持大臣", text: "这……这当然是马。赵大人学识渊博，岂会说错？"},
+                    {role: "旁白", text: "(赵高又问了几个大臣，大都附和说是马)"},
+                    {role: "反对大臣", text: "(仰天大笑)哈哈哈！满朝文武，竟无一人敢说真话！陛下，您看清楚了吗？"},
+                    {role: "胡亥", text: "(茫然地看着鹿)这……朕……"},
+                    {role: "赵高", text: "(跪地)陛下！老臣一片忠心，日月可鉴！李大人说臣欺君，那就是说陛下是昏君！"},
+                    {role: "旁白", text: "(胡亥面色苍白，不知所措)"}
+                ]
+            },
+            {
+                scene: "第三场：君臣问答",
+                lines: [
+                    {role: "旁白", text: "(胡亥想起三年前，赵高也是这样逼他处死李斯)"},
+                    {role: "胡亥", text: "赵卿……朕自然信你。"},
+                    {role: "赵高", text: "那请陛下圣裁，这是鹿，还是马？"},
+                    {role: "旁白", text: "(所有目光都集中在胡亥身上。他走下台阶，摸了摸鹿角)"},
+                    {role: "胡亥", text: "(声音颤抖)朕看……这是千里马。"},
+                    {role: "旁白", text: "(时间仿佛静止。反对大臣瘫坐在地)"},
+                    {role: "赵高", text: "(起身微笑)陛下圣明。"},
+                    {role: "支持大臣", text: "(率先跪拜)陛下圣明！"},
+                    {role: "旁白", text: "(满朝文武纷纷跪拜，山呼圣明)"},
+                    {role: "赵高", text: "(走到反对大臣面前)李大人，您年事已高，该回家养老了。"},
+                    {role: "反对大臣", text: "(惨笑)赵高，今日你能指鹿为马，明日就能指黑为白。但史笔如铁，你骗不了后人！"},
+                    {role: "胡亥", text: "(虚弱地)李大人……革去官职，永不叙用。退朝。"}
+                ]
+            },
+            {
+                scene: "第四场：结局",
+                lines: [
+                    {role: "旁白", text: "(朝臣散去，只剩赵高和几个心腹。侍从牵鹿准备离开)"},
+                    {role: "赵高", text: "(抚摸鹿背)好孩子，你今天立了大功。"},
+                    {role: "支持大臣", text: "大人妙计！这下谁忠谁奸，一目了然。"},
+                    {role: "赵高", text: "(看着鹿的眼睛)你说，它知道自己是什么吗？"},
+                    {role: "支持大臣", text: "这……"},
+                    {role: "赵高", text: "它不知道。它只知道要活下去。人比鹿聪明，但有时也更蠢。"},
+                    {role: "旁白", text: "(侍从牵鹿下。夕阳西下，鹿的影子被拉得很长)"},
+                    {role: "旁白", text: "那一天后，说'鹿'的大臣都莫名消失了。秦二世再也没问过军情，因为他听到的永远是捷报。直到刘邦攻破武关，他才知道真相。又一个月后，赵高派人逼他自尽。"},
+                    {role: "旁白", text: "那只鹿呢？史书没有记载。只有'指鹿为马'四个字流传下来，提醒后人：当权力可以决定真相时，悲剧就开始了。"},
+                    {role: "旁白", text: "(幕落)"}
+                ]
+            }
+        ];
+
+        // 当前选中的角色
+        let currentRole = 'all';
+        
+        // 显示台词函数
+        function showLines(role) {
+            currentRole = role;
+            
+            // 更新按钮样式
+            document.querySelectorAll('button').forEach(btn => {
+                btn.className = '';
+            });
+            event.target.className = 'active';
+            
+            // 渲染剧本
+            renderScript();
+        }
+        
+        // 渲染剧本
+        function renderScript() {
+            const container = document.getElementById('script');
+            let html = '';
+            
+            script.forEach((scene, index) => {
+                // 过滤台词
+                const lines = currentRole === 'all' 
+                    ? scene.lines 
+                    : scene.lines.filter(line => line.role === currentRole || line.role === '旁白');
+                
+                // 如果没有台词，跳过这一幕
+                if (lines.length === 0) return;
+                
+                // 添加场景标题
+                html += `<div class="scene-title">${scene.scene}</div>`;
+                
+                // 添加台词
+                lines.forEach(line => {
+                    const isHighlight = line.role === currentRole;
+                    html += `
+                        <div class="line ${isHighlight ? 'highlight' : ''}">
+                            <div class="character">${line.role}</div>
+                            <div class="${line.role === '旁白' ? 'narrator' : ''}">
+                                ${line.text}
+                            </div>
+                        </div>
+                    `;
+                });
+            });
+            
+            container.innerHTML = html;
+        }
+        
+        // 页面加载时显示完整剧本
+        window.onload = function() {
+            renderScript();
+        };
+    </script>
+</body>
+</html>
