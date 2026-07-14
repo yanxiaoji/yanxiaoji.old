@@ -49,7 +49,7 @@ giscus:
   repo: "yanxiaoji/yanxiaoji.old"
   repo_id: "MDEwOlJlcG9zaXRvcnkzNzQ4ODk4MjE="
   category: "Announcements"
-  category_id: "DIC_kwDOFlhdXc4DBKW_"
+  category_id: "DISC_kwDOFlhdXc4DBKW_"
   mapping: "pathname"
   reactions_enabled: true
   input_position: "top"
