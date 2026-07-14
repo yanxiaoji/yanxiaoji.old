@@ -21,7 +21,8 @@
   width: 160px;
   height: 320px;
   z-index: 99998;
-  pointer-events: none; /* 防止遮挡页面交互，widget 自身会捕获 hover */
+  /* allow interactions with the widget */
+  pointer-events: auto;
 }
 @media (max-width: 768px) {
   #live2d-container { display: none; } /* 移动端默认不显示，你可以改成 display:block */
@@ -47,13 +48,17 @@
 
   function loadScript(src, cb) {
     if (window.L2Dwidget || document.querySelector('script[data-live2d]')) {
+      console.log('[live2d] script already present');
       return cb && cb();
     }
     const s = document.createElement('script');
     s.src = src;
     s.async = true;
     s.setAttribute('data-live2d', 'true');
-    s.onload = cb;
+    s.onload = function(){
+      console.log('[live2d] script loaded:', src);
+      cb && cb();
+    };
     s.onerror = function(){ console.warn('Live2D 脚本加载失败'); };
     document.body.appendChild(s);
   }
@@ -66,6 +71,7 @@
     }
     loaded = true;
     try {
+      console.log('[live2d] initLive2D() called');
       L2Dwidget.init({
         model: {
           // UMP45 model.json（来自你给出的仓库）
@@ -85,9 +91,8 @@
         react: {
           opacityDefault: 0.85,
           opacityOnHover: 0.2
-        },
-        // 使 widget 渲染到指定容器
-        el: container
+        }
+        // note: not passing `el` because live2d-widget manages its own container
       });
     } catch (e) {
       console.error('初始化 Live2D 失败', e);
