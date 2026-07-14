@@ -99,5 +99,3 @@ service-worker: true
 friends:
   - title: "严谨的博客"
     href: "http://www.fuxiaoji.xyz/"
-  - title: "友情链接"
-    href: "http://www.ipo.hk/link/"
