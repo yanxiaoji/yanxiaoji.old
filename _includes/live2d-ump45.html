@@ -1,0 +1,147 @@
+<style>
+/* 看板娘控制按钮和容器样式 */
+#live2d-toggle-btn {
+  position: fixed;
+  right: 12px;
+  bottom: 12px;
+  z-index: 99999;
+  background: rgba(0,0,0,0.6);
+  color: #fff;
+  border: none;
+  border-radius: 24px;
+  padding: 8px 12px;
+  cursor: pointer;
+  font-size: 14px;
+  backdrop-filter: blur(4px);
+}
+#live2d-container {
+  position: fixed;
+  right: 8px;
+  bottom: 56px;
+  width: 160px;
+  height: 320px;
+  z-index: 99998;
+  pointer-events: none; /* 防止遮挡页面交互，widget 自身会捕获 hover */
+}
+@media (max-width: 768px) {
+  #live2d-container { display: none; } /* 移动端默认不显示，你可以改成 display:block */
+}
+</style>
+
+<div id="live2d-container" aria-hidden="true"></div>
+<button id="live2d-toggle-btn" aria-pressed="false">看板娘</button>
+
+<script>
+(function(){
+  const KEY = 'live2d-visible'; // localStorage key
+  const btn = document.getElementById('live2d-toggle-btn');
+  const container = document.getElementById('live2d-container');
+  let loaded = false;
+  let visible = localStorage.getItem(KEY) === 'true' ? true : false;
+
+  function updateBtn() {
+    btn.textContent = visible ? '隐藏看板娘' : '显示看板娘';
+    btn.setAttribute('aria-pressed', visible);
+    container.style.display = visible ? 'block' : 'none';
+  }
+
+  function loadScript(src, cb) {
+    if (window.L2Dwidget || document.querySelector('script[data-live2d]')) {
+      return cb && cb();
+    }
+    const s = document.createElement('script');
+    s.src = src;
+    s.async = true;
+    s.setAttribute('data-live2d', 'true');
+    s.onload = cb;
+    s.onerror = function(){ console.warn('Live2D 脚本加载失败'); };
+    document.body.appendChild(s);
+  }
+
+  function initLive2D() {
+    if (loaded) return;
+    if (typeof L2Dwidget === 'undefined') {
+      console.warn('L2Dwidget 尚未加载');
+      return;
+    }
+    loaded = true;
+    try {
+      L2Dwidget.init({
+        model: {
+          // UMP45 model.json（来自你给出的仓库）
+          jsonPath: "https://cdn.jsdelivr.net/gh/Eikanya/Live2d-model@master/GirlsFrontline/UMP45/model.json"
+        },
+        display: {
+          position: "right",
+          width: 160,
+          height: 320,
+          hOffset: 0,
+          vOffset: -20
+        },
+        mobile: {
+          show: false,
+          scale: 0.5
+        },
+        react: {
+          opacityDefault: 0.85,
+          opacityOnHover: 0.2
+        },
+        // 使 widget 渲染到指定容器
+        el: container
+      });
+    } catch (e) {
+      console.error('初始化 Live2D 失败', e);
+    }
+  }
+
+  // 延迟加载策略：如果用户短时间内没点，3 秒后缓慢加载脚本（不立即 init）
+  function lazyLoadScript() {
+    loadScript('https://cdn.jsdelivr.net/npm/live2d-widget@latest/lib/L2Dwidget.min.js', function(){
+      // 如果用户已经选择显示，则直接 init
+      if (visible) initLive2D();
+      // 若未显示，则保持脚本已加载，等用户点显示时再 init
+    });
+  }
+
+  // 初始状态
+  updateBtn();
+
+  // 若 visible 为 true，尽量延迟 init（避免阻塞首屏），但在短延迟后加载脚本
+  if (visible) {
+    // 先加载脚本，再 init
+    lazyLoadScript();
+    // 尝试在 1s 后 init（保证脚本加载完）
+    setTimeout(function(){ if (window.L2Dwidget) initLive2D(); }, 1000);
+  } else {
+    // 如果用户没有显示，延迟后台加载脚本以提升后续体验（可取消）
+    setTimeout(lazyLoadScript, 3000);
+  }
+
+  // 按钮事件：点开则显示并 init（如果脚本尚未加载则先加载）
+  btn.addEventListener('click', function(){
+    visible = !visible;
+    localStorage.setItem(KEY, visible ? 'true' : 'false');
+    updateBtn();
+    if (visible) {
+      if (!loaded) {
+        loadScript('https://cdn.jsdelivr.net/npm/live2d-widget@latest/lib/L2Dwidget.min.js', function(){ initLive2D(); });
+      } else {
+        // script 已加载但尚未 init
+        initLive2D();
+      }
+    }
+  });
+
+  // 可选：当用户鼠标移动到页面底部时预加载脚本（提高交互体验）
+  let preloaded = false;
+  window.addEventListener('mousemove', function onmove(e){
+    if (preloaded) return;
+    if (e.clientY > (window.innerHeight - 120)) {
+      preloaded = true;
+      lazyLoadScript();
+      window.removeEventListener('mousemove', onmove);
+    }
+  });
+
+})();
+</script>
