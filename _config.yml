@@ -33,15 +33,28 @@ highlighter: rouge
 kramdown:
   input: GFM
 
-# 评论系统 - Gitalk
+# 评论系统 - Gitalk (disabled)
 gitalk:
-  enable: true
+  enable: false
   clientID: 94be908944f3036034f4
-  clientSecret: ce7af19bb951288bc74912de1ac8a78aa53523ac
+  # clientSecret removed from repository for security. Please rotate the secret in GitHub OAuth Apps.
   repo: yanxiaoji.old          # ✅ 修正：改为当前使用的仓库
   owner: yanxiaoji
   admin: yanxiaoji
   distractionFreeMode: true
+
+# Giscus 评论系统 - 请补全 repo_id 与 category_id（见 README 下的指令获取）
+giscus:
+  enable: true
+  repo: "yanxiaoji/yanxiaoji.old"
+  repo_id: ""    # TODO: 填写 GraphQL 返回的 repository.id（例：MDEwOlJlcG9zaXRvcnkxMjM0NTY=）
+  category: "Comments"
+  category_id: "" # TODO: 填写 discussion category 的 id（GraphQL 返回）
+  mapping: "pathname"
+  reactions_enabled: true
+  input_position: "bottom"
+  theme: "light"
+  lang: "zh-CN"
 
 # 统计（百度统计已禁用，如需启用请取消注释并填写正确的 track_id）
 # ba_track_id: b50bf2b12b5338a1845e33832976fd68
