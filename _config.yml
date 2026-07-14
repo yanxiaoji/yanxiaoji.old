@@ -43,17 +43,17 @@ gitalk:
   admin: yanxiaoji
   distractionFreeMode: true
 
-# Giscus 评论系统 - 请补全 repo_id 与 category_id（见 README 下的指令获取）
+# Giscus 评论系统
 giscus:
   enable: true
   repo: "yanxiaoji/yanxiaoji.old"
-  repo_id: ""    # TODO: 填写 GraphQL 返回的 repository.id（例：MDEwOlJlcG9zaXRvcnkxMjM0NTY=）
-  category: "Comments"
-  category_id: "" # TODO: 填写 discussion category 的 id（GraphQL 返回）
+  repo_id: "MDEwOlJlcG9zaXRvcnkzNzQ4ODk4MjE="
+  category: "Announcements"
+  category_id: "DIC_kwDOFlhdXc4DBKW_"
   mapping: "pathname"
   reactions_enabled: true
-  input_position: "bottom"
-  theme: "light"
+  input_position: "top"
+  theme: "preferred_color_scheme"
   lang: "zh-CN"
 
 # 统计（百度统计已禁用，如需启用请取消注释并填写正确的 track_id）
