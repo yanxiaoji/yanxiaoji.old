@@ -1,4 +1,4 @@
-﻿# Site settings
+# ﻿Site settings
 title: 严小鸡🐔
 SEOTitle: 严谨的博客
 header-img: img/post-bg-desk.jpg
@@ -83,7 +83,6 @@ gitalk:
 
 
 
-
 # Featured Tags
 featured-tags: true                     # 是否使用首页标签
 featured-condition-size: 1              # 相同标签数量大于这个数，才会出现在首页
@@ -97,13 +96,8 @@ service-worker: true
 
 
 # 友情链接，请尽量不要删除，谢谢！
-friends: [
-    {
-        title: "严谨的博客",
-        href: "http://www.fuxiaoji.xyz/"
-    }
-friends: [
-    {
-        title: "友情链接",
-        href: "http://www.ipo.hk/link/"
- ]
+friends:
+  - title: "严谨的博客"
+    href: "http://www.fuxiaoji.xyz/"
+  - title: "友情链接"
+    href: "http://www.ipo.hk/link/"
