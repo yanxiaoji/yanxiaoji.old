@@ -53,7 +53,7 @@ giscus:
   mapping: "pathname"
   reactions_enabled: true
   input_position: "top"
-  theme: "preferred_color_scheme"
+  theme: "light"
   lang: "zh-CN"
 
 # 统计（百度统计已禁用，如需启用请取消注释并填写正确的 track_id）
