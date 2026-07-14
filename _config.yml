@@ -44,17 +44,21 @@ gitalk:
   distractionFreeMode: true
 
 # Giscus 评论系统
-giscus:
-  enable: true
-  repo: "yanxiaoji/yanxiaoji.old"
-  repo_id: "MDEwOlJlcG9zaXRvcnkzNzQ4ODk4MjE="
-  category: "Announcements"
-  category_id: "DISC_kwDOFlhdXc4DBKW_"
-  mapping: "pathname"
-  reactions_enabled: true
-  input_position: "top"
-  theme: "light"
-  lang: "zh-CN"
+<script src="https://giscus.app/client.js"
+        data-repo="yanxiaoji/yanxiaoji.old"
+        data-repo-id="MDEwOlJlcG9zaXRvcnkzNzQ4ODk4MjE="
+        data-category="Announcements"
+        data-category-id="DIC_kwDOFlhdXc4DBKW_"
+        data-mapping="pathname"
+        data-strict="0"
+        data-reactions-enabled="1"
+        data-emit-metadata="0"
+        data-input-position="top"
+        data-theme="noborder_light"
+        data-lang="zh-CN"
+        crossorigin="anonymous"
+        async>
+</script>
 
 # 统计（百度统计已禁用，如需启用请取消注释并填写正确的 track_id）
 # ba_track_id: b50bf2b12b5338a1845e33832976fd68
