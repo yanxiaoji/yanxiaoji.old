@@ -5,7 +5,7 @@ header-img: img/post-bg-desk.jpg
 email: 2123822873@qq.com
 description: "hi"
 keyword: "针不戳"
-url: "https://yanxiaoji.github.io"          # your host, for absolute URL
+url: "https://yanjin.eu.org"          # your host, for absolute URL (updated for domain migration)
 baseurl: ""      # for example, '/blog' if your blog hosted on 'host/blog'
 github_repo: "https://github.com/yanxiaoji/yanxiaoji.github.io" # you code repository
 
@@ -92,10 +92,3 @@ featured-condition-size: 1              # 相同标签数量大于这个数，�
 # Progressive Web Apps
 chrome-tab-theme-color: "#000000"
 service-worker: true
-
-
-
-# 友情链接，请尽量不要删除，谢谢！
-friends:
-  - title: "严谨的博客"
-    href: "http://www.fuxiaoji.xyz/"
